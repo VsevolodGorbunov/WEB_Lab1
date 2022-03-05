@@ -1,0 +1,29 @@
+.prg{
+    width: 30%;
+    height: 30%;
+    margin: 0 auto;
+}
+.search{
+    height: 100px;
+    text-align: center;
+    background-color: cadetblue;
+    color: white;
+}
+
+h1{
+    font-size: 25px;
+    position: relative;
+    top: 31px;
+}
+
+input{
+    margin-bottom: 10px;
+}
+
+.searchb{
+    position: relative;
+    top: 15px;
+}
+.btn-create{
+    display: flex;
+}

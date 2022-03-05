@@ -2,25 +2,33 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" href="main.css">
     <title>Лабораторная работа 1</title>
 </head>
 <body>
-<h1>Список дел</h1>
-<input placeholder="Новый элемент списка">
-<button>
-    Создать
-</button>
-<ol>
-    <li><input type="checkbox" name="tasks">Покормить кошку
-        <button><img src="redcross.webp" width="12" height="12"></button>
-    </li>
-    <li><input type="checkbox" name="tasks">Полить картошку
-        <button><img src="redcross.webp" width="12" height="12"></button>
-    </li>
-    <li><input type="checkbox" name="tasks">Положить в лукошко
-        <button><img src="redcross.webp" width="12" height="12"></button>
-    </li>
-</ol>
-
+<div class="prg">
+    <div class="search">
+        <h1>Список дел</h1>
+        <div class="searchb">
+            <input placeholder="Новый элемент списка">
+            <div class="btn-create">
+                <button>
+                    Создать
+                </button>
+            </div>
+        </div>
+    </div>
+    <ol class="ol1">
+        <li><input type="checkbox" name="tasks">Покормить кошку
+            <button><img src="redcross.webp" width="12" height="12"></button>
+        </li>
+        <li><input type="checkbox" name="tasks">Полить картошку
+            <button><img src="redcross.webp" width="12" height="12"></button>
+        </li>
+        <li><input type="checkbox" name="tasks">Положить в лукошко
+            <button><img src="redcross.webp" width="12" height="12"></button>
+        </li>
+    </ol>
+</div>
 </body>
 </html>
