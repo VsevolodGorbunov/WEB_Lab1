@@ -16,14 +16,35 @@ h1{
     top: 31px;
 }
 
-input{
-    margin-bottom: 10px;
+.search_button{
+    border-radius: 0px;
 }
 
-.searchb{
-    position: relative;
-    top: 15px;
+.input_menu{
+    margin-top: 30px;
 }
-.btn-create{
+
+.ol1{
+    list-style: none;
+}
+
+.ol1 li {
     display: flex;
+}
+
+.ol1 li span {
+    flex: 1;
+}
+
+.ol1 li input[type="checkbox"]:checked + span {
+    text-decoration: line-through;
+}
+
+.ol_checkbox{
+    border: 0px;
+}
+.input_box {
+}
+
+.search_button {
 }
