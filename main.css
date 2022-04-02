@@ -25,7 +25,9 @@ h1{
 }
 
 .ol1{
-    list-style: none;
+    list-style-type: none;
+    padding-left: 0px;
+    background-color: cadetblue;
 }
 
 .ol1 li {
