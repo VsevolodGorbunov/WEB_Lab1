@@ -10,22 +10,40 @@
     <div class="search">
         <h1>Список дел</h1>
         <div class="input_menu">
-            <input class="input_box" placeholder="Новый элемент списка">
-            <button class="search_button">Создать</button>
+            <input id="input_box" placeholder="Новый элемент списка">
+            <button id="search_button" onclick="addElement()">Создать</button>
         </div>
     </div>
-    <ol class="ol1">
-<!--        https://itchief.ru/html-and-css/styling-checkbox-and-radio-->
-        <li><input class="ol_checkbox" type="checkbox" name="tasks"><span>Покормить кошку</span>
-            <button><img src="redcross.webp" width="12" height="12"></button>
-        </li>
-        <li><input type="checkbox" name="tasks"><span>Полить картошку</span>
-            <button><img src="redcross.webp" width="12" height="12"></button>
-        </li>
-        <li><input type="checkbox" name="tasks"><span>Положить в лукошко</span>
-            <button><img src="redcross.webp" width="12" height="12"></button>
-        </li>
+    <ol id="ol1">
+<!--        <li class="willBeDeleted"><input class="ol_checkbox" type="checkbox" name="tasks"><span>Покормить кошку</span>-->
+<!--            <button><img src="redcross.webp" onclick="deleteElement(li.id)" width="12" height="12"></button>-->
+<!--        </li>-->
+<!--        <li class="willBeDeleted"><input class="ol_checkbox" type="checkbox" name="tasks"><span>Полить картошку</span>-->
+<!--            <button><img src="redcross.webp" width="12" height="12"></button>-->
+<!--        </li>-->
+<!--        <li class="willBeDeleted"><input class="ol_checkbox" type="checkbox" name="tasks"><span>Положить в лукошко</span>-->
+<!--            <button><img src="redcross.webp" width="12" height="12"></button>-->
+<!--        </li>-->
     </ol>
+
+    <script>
+        function addElement() {
+            const $ol1 = document.querySelector('#ol1');
+
+            const id = Math.random().toString(36).substring(2);
+
+            const li_id = document.getElementById(`${id}`)
+
+            let text = document.getElementById("input_box").value;
+            if (text !== "")
+                $ol1.insertAdjacentHTML('beforeend', `<li id="${id}"><input class="ol_checkbox" type="checkbox" name="tasks"><span>${text}</span> <button><img src="redcross.webp" onclick="deleteElement(${li_id}) width="12" height="12"></button></li>`);
+        }
+
+        function deleteElement(id) {
+            const element = document.getElementById(id);
+            element.parentElement.removeChild(element);
+        }
+    </script>
 </div>
 </body>
 </html>
