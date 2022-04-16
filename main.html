@@ -25,6 +25,11 @@
 <!--            <button><img src="redcross.webp" width="12" height="12"></button>-->
 <!--        </li>-->
     </ol>
+    <div class="filter">
+            <a id="done" href="#">Сделано(<span>0</span>)</a>
+            <a id="notDone" href="#">Не сделано(<span>0</span>)</a>
+            <a id="all" href="#">Все(<span>0</span>)</a>
+    </div>
 
     <script>
         function addElement() {
@@ -36,10 +41,16 @@
 
             let text = document.getElementById("input_box").value;
             if (text !== "")
-                $ol1.insertAdjacentHTML('beforeend', `<li class="listElement"><input class="ol_checkbox" type="checkbox" name="tasks" id = ${id} ><span>${text}</span> <button id="deleting"><img  src="redcross.webp" width="12" height="12"></button></li>`);
+                $ol1.insertAdjacentHTML('beforeend', `<li class="listElement _notDone"><input class="ol_checkbox" type="checkbox" name="tasks" id = ${id} ><span>${text}</span> <button id="deleting"><img  src="redcross.webp" width="12" height="12"></button></li>`);
+
+            count();
         }
 
         const task = document.querySelector('ol');
+        const doneTasks = document.getElementsByClassName('_done');
+        const notDoneTasks = document.getElementsByClassName('_notDone');
+        const allTasks = document.getElementsByClassName('listElement');
+        const filter = document.querySelector('.filter');
 
         task.addEventListener('click', event => {
             let taskElement = event.target.closest('.listElement');
@@ -48,7 +59,68 @@
             if (taskElement && deletingButton){
                 taskElement.remove();
             }
+
+            if (taskElement) {
+                taskElement.classList.toggle('_done');
+                taskElement.classList.toggle('_notDone');
+            }
+
+            count();
         })
+
+        filter.addEventListener('click', event => {
+            event.preventDefault();
+
+            let currentFilter = event.target.closest('a');
+
+            if (currentFilter){
+                if (currentFilter.getAttribute('id') === 'done')
+                    display(doneTasks, notDoneTasks);
+
+                if (currentFilter.getAttribute('id') === 'notDone')
+                    display(notDoneTasks, doneTasks);
+
+                if (currentFilter.getAttribute('id') === 'all'){
+                    display(doneTasks, notDoneTasks, true);
+                }
+            }
+        });
+
+        function count(){
+            document.querySelector('#done').firstElementChild.innerText = doneTasks.length;
+            document.querySelector('#notDone').firstElementChild.innerText = notDoneTasks.length;
+            document.querySelector('#all').firstElementChild.innerText = allTasks.length;
+        }
+
+        function display(show, hide, isDisplayAll = false){
+            if (!isDisplayAll){
+                for(item of show){
+                    item.style.visibility = 'visible';
+                    item.style.position = 'relative';
+                }
+                for(item of hide){
+                    item.style.visibility = 'hidden';
+                    item.style.position = 'absolute';
+                }
+            }
+            else{
+                for(item of show){
+                    item.style.visibility = 'visible';
+                    item.style.position = 'relative';
+                }
+                for(item of hide){
+                    item.style.visibility = 'visible';
+                    item.style.position = 'relative';
+                }
+            }
+        }
+
+        function changeCheckbox(checkbox){
+            if (checkbox.checked)
+            {
+
+            }
+        }
     </script>
 </div>
 </body>

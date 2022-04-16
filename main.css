@@ -39,7 +39,7 @@ h1{
     flex: 1;
 }
 
-#ol1 li input[type="checkbox"]:checked + span {
+#ol1 ._done{
     text-decoration: line-through;
 }
 
@@ -53,4 +53,15 @@ h1{
 
 #search_button {
     font-size: 15px;
+}
+
+.filter {
+    width: 50%;
+    height: 30%;
+    margin: 0 auto;
+}
+
+.filter a {
+    font-size: 20px;
+    color: black;
 }
