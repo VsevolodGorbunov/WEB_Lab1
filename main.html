@@ -36,13 +36,19 @@
 
             let text = document.getElementById("input_box").value;
             if (text !== "")
-                $ol1.insertAdjacentHTML('beforeend', `<li id="${id}"><input class="ol_checkbox" type="checkbox" name="tasks"><span>${text}</span> <button><img src="redcross.webp" onclick="deleteElement(${li_id}) width="12" height="12"></button></li>`);
+                $ol1.insertAdjacentHTML('beforeend', `<li class="listElement"><input class="ol_checkbox" type="checkbox" name="tasks" id = ${id} ><span>${text}</span> <button id="deleting"><img  src="redcross.webp" width="12" height="12"></button></li>`);
         }
 
-        function deleteElement(id) {
-            const element = document.getElementById(id);
-            element.parentElement.removeChild(element);
-        }
+        const task = document.querySelector('ol');
+
+        task.addEventListener('click', event => {
+            let taskElement = event.target.closest('.listElement');
+            let deletingButton = event.target.closest('#deleting');
+
+            if (taskElement && deletingButton){
+                taskElement.remove();
+            }
+        })
     </script>
 </div>
 </body>
