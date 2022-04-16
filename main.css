@@ -35,7 +35,7 @@ h1{
     display: flex;
 }
 
-#ol1 li span {
+#ol1 li label {
     flex: 1;
 }
 
